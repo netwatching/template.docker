@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/netwatching/template.docker/compare/v1.0.3...v1.0.4) (2023-11-25)
+
+
+### Bug Fixes
+
+* Commitlint ([e661185](https://github.com/netwatching/template.docker/commit/e66118551475425062ba8633856b932acf9b5b4c))
+
 ## [1.0.3](https://github.com/netwatching/template.docker/compare/v1.0.2...v1.0.3) (2023-11-25)
 
 
