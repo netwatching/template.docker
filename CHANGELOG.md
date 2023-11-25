@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/netwatching/template.docker/compare/v1.1.0...v1.1.1) (2023-11-25)
+
+
+### Bug Fixes
+
+* Push image from tag ([237c848](https://github.com/netwatching/template.docker/commit/237c848997f81499114ec32168ac1a6b4addf28f))
+
 ## [1.1.0](https://github.com/netwatching/template.docker/compare/v1.0.5...v1.1.0) (2023-11-25)
 
 
