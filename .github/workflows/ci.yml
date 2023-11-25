@@ -53,7 +53,7 @@ jobs:
     needs: [name, push]
     steps:
       - name: Merge
-        uses: netwatching/action.docker.merge@v1.1.5
+        uses: netwatching/action.docker.merge@v1.1.6
         with:
           name: ${{ needs.name.outputs.name }}
           registry_password: ${{ secrets.GITHUB_TOKEN }}
