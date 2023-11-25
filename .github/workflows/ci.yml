@@ -40,11 +40,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Push
-        uses: netwatching/action.docker.push@v2.0.0
+        uses: netwatching/action.docker.push@v2.0.1
         with:
           name: ${{ needs.name.outputs.name }}
           arch: ${{ matrix.arch }}
           registry_password: ${{ secrets.GITHUB_TOKEN }}
+          registry_username: ${{ github.actor }}
 
   # Merge --------------------------------------------------------
   merge:
@@ -53,8 +54,9 @@ jobs:
     needs: [name, push]
     steps:
       - name: Merge
-        uses: netwatching/action.docker.merge@v1.1.0
+        uses: netwatching/action.docker.merge@v1.1.1
         with:
           name: ${{ needs.name.outputs.name }}
           registry_password: ${{ secrets.GITHUB_TOKEN }}
+          registry_username: ${{ github.actor }}
           
