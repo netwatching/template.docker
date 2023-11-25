@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/netwatching/template.docker/compare/v1.1.4...v1.1.5) (2023-11-25)
+
+
+### Bug Fixes
+
+* Update readme ([8752b98](https://github.com/netwatching/template.docker/commit/8752b9814185bd34d3be70bd9d2da4fd5dc77b4b))
+
 ## [1.1.4](https://github.com/netwatching/template.docker/compare/v1.1.3...v1.1.4) (2023-11-25)
 
 
