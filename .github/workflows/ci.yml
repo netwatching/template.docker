@@ -39,16 +39,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set push flag
+        id: set-push-flag
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            echo "PUSH_FLAG=true" >> $GITHUB_ENV
+          else
+            echo "PUSH_FLAG=false" >> $GITHUB_ENV
+
       - name: Push
-        uses: netwatching/action.docker.push@v2.0.9
+        uses: netwatching/action.docker.push@v2.1.0
         with:
           name: ${{ needs.name.outputs.name }}
           arch: ${{ matrix.arch }}
           registry_password: ${{ secrets.GITHUB_TOKEN }}
+          push: ${{ env.PUSH_FLAG }}
 
   # Merge --------------------------------------------------------
   merge:
     runs-on: ubuntu-latest
+    if: env.PUSH_FLAG == 'true'
     name: Merge
     needs: [name, push]
     steps:
