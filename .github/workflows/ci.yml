@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Push
-        uses: netwatching/action.docker.push@v1.1.0
+        uses: netwatching/action.docker.push@v2.0.0
         with:
           name: ${{ needs.name.outputs.name }}
           arch: ${{ matrix.arch }}
@@ -52,7 +52,7 @@ jobs:
     needs: [name, push]
     steps:
       - name: Merge
-        uses: netwatching/action.docker.merge@v1.0.0
+        uses: netwatching/action.docker.merge@v1.1.0
         with:
           name: ${{ needs.name.outputs.name }}
           
