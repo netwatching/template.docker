@@ -7,7 +7,7 @@ updates:
     commit-message:
       prefix: "chore"
     assignees:
-      - "steigerto/devops"
+      - "netwatching/devops"
 
   - package-ecosystem: "docker"
     directory: "/"
@@ -16,4 +16,4 @@ updates:
     commit-message:
       prefix: "chore"
     assignees:
-      - "steigerto/devops"
+      - "netwatching/devops"
