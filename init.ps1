@@ -24,7 +24,7 @@ if (Test-Path -Path "README.md") {
 # Get basic repo information and write to README.md
 $repoInfo = git config --get remote.origin.url
 $repoName = $repoInfo.Split('/')[-1].Replace('.git','')
-$readmeContent = "Repository Name: $repoName`nMore information will be added soon."
+$readmeContent = "Repository Name: $repoName`  `nMore information will be added soon."
 Set-Content -Path "README.md" -Value $readmeContent
 
 # Add changes to staging
