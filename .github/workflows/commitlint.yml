@@ -1,29 +1,44 @@
 name: Commitlint
-
 on: [push, pull_request]
 
 jobs:
   commitlint:
     runs-on: ubuntu-latest
-    name: Commitlint
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
+      - uses: actions/checkout@v3
+      - run: sed -i -E "s/(docker:.+)/Dockerfile/" ./action.yml
+      - run: echo -n '' > .dockerignore
       - uses: actions/setup-node@v4
+      - uses: actions/cache@v3
         with:
-          node-version: 20
-
-      - name: Install commitlint
-        run: |
-          npm install -g @commitlint/config-conventional @commitlint/cli
-
-      - name: Validate current commit (last commit) with commitlint
-        if: github.event_name == 'push'
-        run: npx commitlint --from HEAD~1 --to HEAD --verbose
-
-      - name: Validate PR commits with commitlint
-        if: github.event_name == 'pull_request'
-        run: npx commitlint --from ${{ github.event.pull_request.head.sha }}~${{ github.event.pull_request.commits }} --to ${{ github.event.pull_request.head.sha }} --verbose
+          path: |
+            ~/.npm
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci --ignore-scripts
+      - uses: ./
+        id: run_commitlint
+        env:
+          NODE_PATH: ${{ github.workspace }}/node_modules
+      - name: Show results from JSON output
+        if: ${{ always() }}
+        run: echo ${{ toJSON(steps.run_commitlint.outputs.results) }}
+  commitlint-pulling-from-docker-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.npm
+            **/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - run: npm ci --ignore-scripts
+      - uses: ./
+        env:
+          NODE_PATH: ${{ github.workspace }}/node_modules
