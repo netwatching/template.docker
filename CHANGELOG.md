@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/netwatching/template.docker/compare/v1.0.1...v1.0.2) (2023-11-25)
+
+
+### Bug Fixes
+
+* Init script ([2f1413f](https://github.com/netwatching/template.docker/commit/2f1413ff29d9e78940eef9c38e1ab7f8d2ae4197))
+
 ## [1.0.1](https://github.com/netwatching/template.docker/compare/v1.0.0...v1.0.1) (2023-11-25)
 
 
