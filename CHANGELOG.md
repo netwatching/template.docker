@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/netwatching/template.docker/compare/v1.0.5...v1.1.0) (2023-11-25)
+
+
+### Features
+
+* Disable push on non-release ([d0cfe62](https://github.com/netwatching/template.docker/commit/d0cfe628d33e93d2e9c0ea37b9e114342ab132cc))
+
+
+### Bug Fixes
+
+* Worflow run ([33f8bac](https://github.com/netwatching/template.docker/commit/33f8bac99343ceaea25349d2a55b9fbd56b600e7))
+
 ## [1.0.5](https://github.com/netwatching/template.docker/compare/v1.0.4...v1.0.5) (2023-11-25)
 
 
