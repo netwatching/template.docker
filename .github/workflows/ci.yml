@@ -45,6 +45,7 @@ jobs:
           name: ${{ needs.name.outputs.name }}
           arch: ${{ matrix.arch }}
           registry_password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io/${{ github.repository_owner }}
 
   # Merge --------------------------------------------------------
   merge:
@@ -57,4 +58,5 @@ jobs:
         with:
           name: ${{ needs.name.outputs.name }}
           registry_password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io/${{ github.repository_owner }}
           
