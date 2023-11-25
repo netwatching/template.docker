@@ -48,7 +48,7 @@ jobs:
             echo "PUSH_FLAG=false" >> $GITHUB_ENV
 
       - name: Push
-        uses: netwatching/action.docker.push@v2.1.0
+        uses: netwatching/action.docker.push@v2.1.1
         with:
           name: ${{ needs.name.outputs.name }}
           arch: ${{ matrix.arch }}
