@@ -44,6 +44,7 @@ jobs:
         with:
           name: ${{ needs.name.outputs.name }}
           arch: ${{ matrix.arch }}
+          registry_password: ${{ secrets.GITHUB_TOKEN }}
 
   # Merge --------------------------------------------------------
   merge:
@@ -55,4 +56,5 @@ jobs:
         uses: netwatching/action.docker.merge@v1.1.0
         with:
           name: ${{ needs.name.outputs.name }}
+          registry_password: ${{ secrets.GITHUB_TOKEN }}
           
