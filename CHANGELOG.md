@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/netwatching/template.docker/compare/v1.0.0...v1.0.1) (2023-11-25)
+
+
+### Bug Fixes
+
+* Add license file ([5d72961](https://github.com/netwatching/template.docker/commit/5d7296104ab6009b09508554ecf84f09528426f1))
+
 ## 1.0.0 (2023-11-25)
 
 
