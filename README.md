@@ -17,9 +17,11 @@ Welcome to NetWatching's Docker Template Repository! This template streamlines t
    - Enable branch protection rules on the default branch to prevent direct pushes and force pushes. All changes should go through `feat/` or `fix/` branches.
    - Disable rebase and squash merging.
    - Enable automatic deletion of head branches post-merge.
+   - Require contributors to review pull requests before merging. At least 2 developers should review code before merges are allowed.
+   - Only allow pull requests which pass all checks (no workflows have to pass).
 3. **Initialize Your Project**:
    - Clone your new repository.
-   - Run the `init.ps1` script for initial setup, including Release Please configuration and README file generation.
+   - Run the `init.ps1` script for initial setup, including Release Please configuration and README file generation (a bash version of this script will follow soon).
 
 ## Important Notes
 
