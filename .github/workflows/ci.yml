@@ -54,14 +54,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set push flag
-        id: push
-        run: |
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
-            echo "PUSH_FLAG=true" >> $GITHUB_ENV
-          else
-            echo "PUSH_FLAG=false" >> $GITHUB_ENV
-
       - name: Push
         uses: netwatching/action.docker.push@v2.1.1
         with:
