@@ -23,6 +23,14 @@ jobs:
             echo "::notice::HEALTHCHECK instruction found in Dockerfile - proceeding..."
           fi
 
+      - name: Notifiy push
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            echo "::warning::Image will be pushed after successful build..."
+          else
+            echo "::warning::Image will not be pushed - only tags will be pushed..."
+          fi
+
   # Naming -------------------------------------------------------
   name:
     runs-on: ubuntu-latest
