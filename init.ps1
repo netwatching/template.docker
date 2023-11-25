@@ -24,7 +24,7 @@ if (Test-Path -Path "README.md") {
 # Get basic repo information and write to README.md
 $repoInfo = git config --get remote.origin.url
 $repoName = $repoInfo.Split('/')[-1].Replace('.git','')
-$readmeContent = "Repository Name: $repoName`  `nMore information will be added soon."
+$readmeContent = "# $repoName`  `n- More information will be added soon`  `n- Please update your GitHub settings as described [here](https://github.com/netwatching/template.docker/blob/main/README.md) "
 Set-Content -Path "README.md" -Value $readmeContent
 
 # Add changes to staging
