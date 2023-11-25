@@ -58,7 +58,7 @@ jobs:
   # Merge --------------------------------------------------------
   merge:
     runs-on: ubuntu-latest
-    if: env.PUSH_FLAG == 'true'
+    if: ${{ env.PUSH_FLAG == 'true' }}
     name: Merge
     needs: [name, push]
     steps:
