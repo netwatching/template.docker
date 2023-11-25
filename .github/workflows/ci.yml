@@ -11,8 +11,6 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     name: Setup
-    outputs:
-      push: ${{ steps.push.outputs.push }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -24,17 +22,6 @@ jobs:
             exit 1
           else
             echo "::notice::HEALTHCHECK instruction found in Dockerfile - proceeding..."
-          fi
-
-      - name: Set push flag
-        id: push
-        run: |
-          if [[ $GITHUB_REF == refs/tags/* ]]; then
-            echo "push=true" >> "$GITHUB_OUTPUT"
-            echo "::warning::Image will be pushed after successful build!"
-          else
-            echo "push=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::Image will not be pushed!"
           fi
 
   # Naming -------------------------------------------------------
@@ -69,17 +56,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Push
-        uses: netwatching/action.docker.push@v2.1.3
+        uses: netwatching/action.docker.push@v2.1.4
         with:
           name: ${{ needs.name.outputs.name }}
           arch: ${{ matrix.arch }}
           registry_password: ${{ secrets.GITHUB_TOKEN }}
-          push: ${{ needs.push.outputs.push }}
 
   # Merge --------------------------------------------------------
   merge:
     runs-on: ubuntu-latest
-    if: needs.setup.outputs.push_flag == 'true'
+    if: github.ref_type == 'tag'
     name: Merge
     needs: [setup, name, push]
     steps:
