@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.2](https://github.com/netwatching/template.docker/compare/v1.1.1...v1.1.2) (2023-11-25)
+
+
+### Bug Fixes
+
+* Disable docker ci run on creation ([8b7f023](https://github.com/netwatching/template.docker/commit/8b7f0234634311818cffeb15af1244315e5c4851))
+* Enable notification for push ([750f0c1](https://github.com/netwatching/template.docker/commit/750f0c19c95aee894de80d9814cb7db0875a328d))
+* Init script readme creation ([aee30e9](https://github.com/netwatching/template.docker/commit/aee30e9588df73ace03379b6b2189d9d5fa346c8))
+
 ## [1.1.1](https://github.com/netwatching/template.docker/compare/v1.1.0...v1.1.1) (2023-11-25)
 
 
